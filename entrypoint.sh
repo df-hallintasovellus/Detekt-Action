@@ -32,6 +32,7 @@ if [ -n "$INPUT_DETEKT_PARALLEL" ]; then
   detekt_command+="--parallel "
 fi
 
+git config --global --add safe.directory "$GITHUB_WORKSPACE"
 git config user.name "$(git log -n 1 --pretty=format:%an)"
 git config user.email "$(git log -n 1 --pretty=format:%ae)"
 
