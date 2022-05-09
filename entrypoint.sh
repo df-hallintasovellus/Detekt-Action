@@ -32,6 +32,9 @@ if [ -n "$INPUT_DETEKT_PARALLEL" ]; then
   detekt_command+="--parallel "
 fi
 
+git config user.name "$(git log -n 1 --pretty=format:%an)"
+git config user.email "$(git log -n 1 --pretty=format:%ae)"
+
 echo "$detekt_command"
 eval "$detekt_command"
 
